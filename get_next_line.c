@@ -6,14 +6,18 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 22:14:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/03/29 13:18:52 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/04/29 18:59:46 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 #include <unistd.h>
 #include <stdlib.h>
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
+#endif
 
 static ssize_t	is_newline(char *str)
 {

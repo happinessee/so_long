@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/04/30 14:03:33 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/04/30 16:36:03 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	map_checker(char **str, t_map *info)
 	while (i < info->rows)
 	{
 		j = 0;
-		while (str[i][j])
+		while (j < info->columns)
 		{
 			if (str[0][j] != '1' || str[i][0] != '1' || str[i][ft_strlen(str[i]) - 1] != '1')
 				print_err("Error : The map must be blocked by a wall.");
@@ -63,7 +63,7 @@ static void	map_checker(char **str, t_map *info)
 	}
 }
 
-char	**make_map(char	*argv)
+t_map	make_map(char *argv)
 {
 	int		fd;
 	char	*map;
@@ -84,8 +84,6 @@ char	**make_map(char	*argv)
 		map = ft_strjoin(map, tmp, 2);
 		info.rows += 1;
 	}
-	printf("%s\n", map);
-	printf("%d %d %zu\n", info.rows, info.columns, ft_strlen(map));
 	if (info.rows * info.columns != (ft_strlen(map) - info.rows + 1))
 		print_err("Error : Maps must be rectangular.");
 	maps = ft_split(map, '\n');
@@ -94,5 +92,6 @@ char	**make_map(char	*argv)
 		print_err("Error : 1 player must exist.");
 	if (info.collects < 1)
 		print_err("Error : 1 collect must exist");
-	return (maps);
+	info.map = maps;
+	return (info);
 }

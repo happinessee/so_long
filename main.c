@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/04/29 19:05:34 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/04/30 16:36:38 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 int	main(int argc, char **argv)
 {
-	char	**map;
+	t_map map;
 
 	if (argc != 2)
 	{
@@ -37,5 +37,7 @@ int	main(int argc, char **argv)
 		print_err("Error : The map extension must be .ber");
 	}
 	map = make_map(argv[1]);
+	printf("map OK\n");
+	make_window(map);
 	return (0);
 }

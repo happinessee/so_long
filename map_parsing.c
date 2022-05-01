@@ -6,31 +6,15 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/04/30 16:36:03 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/01 14:52:44 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 #include <fcntl.h>
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	size_t			i;
-	unsigned char	*memory;
-
-	i = 0;
-	memory = (unsigned char *)b;
-	while (i < len)
-	{
-		memory[i] = c;
-		i++;
-	}
-	return (memory);
-}
 
 void	print_err(char *str)
 {
@@ -52,7 +36,12 @@ static void	map_checker(char **str, t_map *info)
 			if (str[0][j] != '1' || str[i][0] != '1' || str[i][ft_strlen(str[i]) - 1] != '1')
 				print_err("Error : The map must be blocked by a wall.");
 			if (str[i][j] == 'P')
-				info->player += 1;
+			{
+				info->exist_player += 1;
+				ft_memset(&info->player, 0, sizeof(t_player));
+				info->player.x = i;
+				info->player.y = j;
+			}
 			else if (str[i][j] == 'C')
 				info->collects += 1;
 			else if (str[i][j] == 'E')
@@ -88,7 +77,7 @@ t_map	make_map(char *argv)
 		print_err("Error : Maps must be rectangular.");
 	maps = ft_split(map, '\n');
 	map_checker(maps, &info);
-	if (info.player != 1)
+	if (info.exist_player != 1)
 		print_err("Error : 1 player must exist.");
 	if (info.collects < 1)
 		print_err("Error : 1 collect must exist");

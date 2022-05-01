@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/04/30 16:32:13 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/01 16:06:28 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,24 @@
 
 # include <stddef.h>
 
+typedef struct s_player
+{
+	int		x;
+	int		y;
+	int		collects;
+
+	size_t	walks;
+}	t_player;
+
 typedef struct s_map
 {
-	char	**map;
-	int 	rows;
-	int 	columns;
-	
-	int 	player;
-	int 	collects;
-	int		escape;
+	char		**map;
+	int 		rows;
+	int 		columns;
+	int 		collects;
+	int			escape;
+	int			exist_player;
+	t_player	player;
 }	t_map;
 
 typedef struct s_mlx
@@ -59,6 +68,10 @@ t_map	make_map(char *argv);
 
 // create_window
 t_mlx	make_mlx(t_map map);
-void	make_window(t_map map);
+t_img	make_img(t_mlx mlx_info);
+void	make_window(t_map map, t_mlx mlx_info);
+
+// character_move
+int	moving(int key_num, t_map map, t_mlx mlx_info);
 
 #endif

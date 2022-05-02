@@ -6,67 +6,77 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 17:20:39 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/01 16:06:07 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:34:32 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
-game_clear();
-
-int	moving(int key_num, t_map map, t_mlx mlx_info)
+void	game_clear()
 {
-	if (key_num == 53)	// esc
-		exit(0);
-	else if (key_num == 13)	// w
-		move_w(&map, mlx_info);
-	else if (key_num == 0)	// a
-		move_a(&map, mlx_info);
-	else if (key_num == 1)	// s
-		move_s(&map, mlx_info);
-	else if (key_num == 2)	// d
-		move_d(&map, mlx_info);
-	return (0);
+	exit(0);
 }
 
 /* 뒤로 도는 동작 넣어야 한다. */
-void	move_w(t_map *map, t_mlx mlx_info)
+void	move_w(t_map *map)
 {
-	if (map->map[map->player.x][map->player.y + 1] != '1')
+	
+	if (map->map[map->player.y - 1][map->player.x] != '1')
 	{
-		if (map->map[map->player.x][map->player.y + 1] == 'C')
+		if (map->map[map->player.y - 1][map->player.x] == 'C')
 		{
-			map->map[map->player.x][map->player.y + 1] = '0';
+			map->map[map->player.y - 1][map->player.x] = '0';
 			map->player.collects += 1;
 		}
-		if (map->map[map->player.x][map->player.y + 1] == 'E' && map->player.collects == map->collects)
+		if (map->map[map->player.y - 1][map->player.x] == 'E' && map->player.collects == map->collects)
 		{
 			game_clear();
 		}
-		map->map[map->player.x][map->player.y] = '0';
-		map->map[map->player.x][map->player.y + 1] = 'P';
-		map->player.y += 1;
+		map->map[map->player.y][map->player.x] = '0';
+		map->player.y -= 1;
 	}
-	else /* 뒤에서 아장아장 움직이는 모습만 넣어주자 */
+	else // 뒤에서 아장아장 움직이는 모습만 넣어주자 
 	{
 		;
 	}
-	make_window(*map, mlx_info);
+	printf("obbang walk! \n");
+	make_window(*map);
 }
 
-void	move_a(t_map *map, t_mlx mlx_info)
+void	move_a(t_map *map)
 {
 
 }
 
-void	move_s(t_map *map, t_mlx mlx_info)
+void	move_s(t_map *map)
 {
 
 }
 
-void	move_d(t_map *map, t_mlx mlx_info)
+void	move_d(t_map *map)
 {
 
+}
+
+int	moving(int key_num, t_map *map)
+{
+	printf("moving func!\n");
+	if (key_num == 53)	// esc
+		exit(0);
+	else if (key_num == 13)	// w
+	{
+		printf("w \n");
+		move_w(map);
+	}
+	else if (key_num == 0)	// a
+		move_a(map);
+	else if (key_num == 1)	// s
+		move_s(map);
+	else if (key_num == 2)	// d
+		move_d(map);
+	printf("x: %d y: %d", map->player.x, map->player.y);
+	return (0);
 }

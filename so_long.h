@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/01 16:06:28 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:14:00 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ typedef struct s_player
 	size_t	walks;
 }	t_player;
 
-typedef struct s_map
-{
-	char		**map;
-	int 		rows;
-	int 		columns;
-	int 		collects;
-	int			escape;
-	int			exist_player;
-	t_player	player;
-}	t_map;
-
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -49,6 +38,20 @@ typedef struct s_image
 	int		height;
 	int		width;
 }	t_img;
+
+typedef struct s_map
+{
+	char		**map;
+	int 		rows;
+	int 		columns;
+	int 		collects;
+	int			escape;
+	int			exist_player;
+	t_player	player;
+	t_mlx		mlx_info;
+	t_img		img_set;
+}	t_map;
+
 
 // gnl
 char	*get_next_line(int fd);
@@ -69,9 +72,9 @@ t_map	make_map(char *argv);
 // create_window
 t_mlx	make_mlx(t_map map);
 t_img	make_img(t_mlx mlx_info);
-void	make_window(t_map map, t_mlx mlx_info);
+void	make_window(t_map map);
 
 // character_move
-int	moving(int key_num, t_map map, t_mlx mlx_info);
+int	moving(int key_num, t_map *map);
 
 #endif

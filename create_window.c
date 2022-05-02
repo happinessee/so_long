@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 11:10:57 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:51:06 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_img	make_img(t_mlx mlx_info)
 	img_set.img[1] = mlx_xpm_file_to_image(mlx_info.mlx, "images/fish00.xpm", &img_set.width, &img_set.height);
 	img_set.img[2] = mlx_xpm_file_to_image(mlx_info.mlx, "images/duck_front_00.xpm", &img_set.width, &img_set.height);
 	img_set.img[3] = mlx_xpm_file_to_image(mlx_info.mlx, "images/tree_01.xpm", &img_set.width, &img_set.height);
-
+	img_set.img[4] = mlx_xpm_file_to_image(mlx_info.mlx, "images/tile.xpm", &img_set.width, &img_set.height);	
 	return (img_set);
 }
 
@@ -49,6 +49,7 @@ void	make_window(t_map map)
 		j = 0;
 		while (j < map.columns)
 		{
+			mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, map.img_set.img[4], j * 64, i * 64);
 			if (map.map[i][j] == '1')
 				mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, map.img_set.img[0], j * 64, i * 64);
 			else if (map.map[i][j] == 'C')

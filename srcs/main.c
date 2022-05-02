@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 15:13:48 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:57:45 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#include "mlx/mlx.h"
-#include "so_long.h"
+#include "../mlx/mlx.h"
+#include "../includes/so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
 	{
 		print_err("Error : There must be only one parameter.");
 	}
-	if (argv[1][ft_strlen(argv[1]) - 1] != 'r' ||\
-		argv[1][ft_strlen(argv[1]) - 2] != 'e' ||\
-		argv[1][ft_strlen(argv[1]) - 3] != 'b' ||\
+	if (argv[1][ft_strlen(argv[1]) - 1] != 'r' || \
+		argv[1][ft_strlen(argv[1]) - 2] != 'e' || \
+		argv[1][ft_strlen(argv[1]) - 3] != 'b' || \
 		argv[1][ft_strlen(argv[1]) - 4] != '.')
 	{
 		print_err("Error : The map extension must be .ber");

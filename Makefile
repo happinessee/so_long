@@ -1,5 +1,5 @@
 all:	
-	gcc -L mlx -lmlx -framework OpenGL -framework AppKit ft_split.c create_window.c get_next_line.c get_next_line_utils.c main.c so_long.h map_parsing.c character_move.c so_long_utils.c
+	gcc -L mlx -lmlx -framework OpenGL -framework AppKit srcs/ft_split.c srcs/create_window.c srcs/get_next_line.c srcs/get_next_line_utils.c srcs/main.c includes/so_long.h srcs/map_parsing.c srcs/character_move.c srcs/so_long_utils.c
 	./a.out maps/map1.ber
 
 clean: 

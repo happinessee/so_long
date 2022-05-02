@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 13:48:59 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:13:48 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 	map.img_set = make_img(map.mlx_info);
 	make_window(map);
 	mlx_hook(map.mlx_info.win, 2, 0, &moving, &map);
+	mlx_hook(map.mlx_info.win, 17, 0, &game_clear, &map);
 	mlx_loop(map.mlx_info.mlx);
 	return (0);
 }

@@ -6,17 +6,19 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 17:20:39 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 14:43:08 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:20:08 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "mlx/mlx.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 
-void	game_clear()
-{
+int	game_clear(t_map *map)
+{	
+	mlx_destroy_window(map->mlx_info.mlx, map->mlx_info.win);
 	exit(0);
 }
 
@@ -32,7 +34,7 @@ void	move_w(t_map *map)
 		}
 		if (map->map[map->player.y - 1][map->player.x] == 'E' && map->player.collects == map->collects)
 		{
-			game_clear();
+			game_clear(map);
 		}
 		map->player.y -= 1;
 		map->player.walks += 1;
@@ -55,7 +57,7 @@ void	move_a(t_map *map)
 		}
 		if (map->map[map->player.y][map->player.x - 1] == 'E' && map->player.collects == map->collects)
 		{
-			game_clear();
+			game_clear(map);
 		}
 		map->player.x -= 1;
 		map->player.walks += 1;
@@ -78,7 +80,7 @@ void	move_s(t_map *map)
 		}
 		if (map->map[map->player.y + 1][map->player.x] == 'E' && map->player.collects == map->collects)
 		{
-			game_clear();
+			game_clear(map);
 		}
 		map->player.y += 1;
 		map->player.walks += 1;
@@ -101,7 +103,7 @@ void	move_d(t_map *map)
 		}
 		if (map->map[map->player.y][map->player.x + 1] == 'E' && map->player.collects == map->collects)
 		{
-			game_clear();
+			game_clear(map);
 		}
 		map->player.x += 1;
 		map->player.walks += 1;

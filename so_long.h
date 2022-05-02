@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 14:33:30 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:20:26 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	make_window(t_map map);
 
 // character_move
 int	moving(int key_num, t_map *map);
-
+int	game_clear(t_map *map);
 #endif

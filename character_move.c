@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 17:20:39 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 13:50:44 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 14:00:43 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	move_w(t_map *map)
 		}
 		map->map[map->player.y][map->player.x] = '0';
 		map->player.y -= 1;
+		map->player.walks += 1;
 	}
 	else // 뒤에서 아장아장 움직이는 모습만 넣어주자 
 	{
@@ -59,6 +60,7 @@ void	move_a(t_map *map)
 		}
 		map->map[map->player.y][map->player.x] = '0';
 		map->player.x -= 1;
+		map->player.walks += 1;
 	}
 	else // 뒤에서 아장아장 움직이는 모습만 넣어주자 
 	{
@@ -82,6 +84,7 @@ void	move_s(t_map *map)
 		}
 		map->map[map->player.y][map->player.x] = '0';
 		map->player.y += 1;
+		map->player.walks += 1;
 	}
 	else // 뒤에서 아장아장 움직이는 모습만 넣어주자 
 	{
@@ -105,6 +108,7 @@ void	move_d(t_map *map)
 		}
 		map->map[map->player.y][map->player.x] = '0';
 		map->player.x += 1;
+		map->player.walks += 1;
 	}
 	else // 뒤에서 아장아장 움직이는 모습만 넣어주자 
 	{
@@ -115,19 +119,16 @@ void	move_d(t_map *map)
 
 int	moving(int key_num, t_map *map)
 {
-	printf("moving func!\n");
 	if (key_num == 53)	// esc
 		exit(0);
 	else if (key_num == 13)	// w
-	{
-		printf("w \n");
 		move_w(map);
-	}
 	else if (key_num == 0)	// a
 		move_a(map);
 	else if (key_num == 1)	// s
 		move_s(map);
 	else if (key_num == 2)	// d
 		move_d(map);
+	printf("walks : %zu\n", map->player.walks);
 	return (0);
 }

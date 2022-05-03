@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:34:27 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:49:17 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_player
 	int		x;
 	int		y;
 	int		collects;
+	void	*img;
 
 	size_t	walks;
 }	t_player;
@@ -51,7 +52,6 @@ typedef struct s_map
 	t_mlx		mlx_info;
 	t_img		img_set;
 }	t_map;
-
 
 // gnl
 char	*get_next_line(int fd);

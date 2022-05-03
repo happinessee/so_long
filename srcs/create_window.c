@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:18:14 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:55:34 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void	make_window(t_map map)
 		}
 	}
 	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-	map.img_set.img[2], map.player.x * 64, map.player.y * 64);
+	map.player.p_img, map.player.x * 64, map.player.y * 64);
 }

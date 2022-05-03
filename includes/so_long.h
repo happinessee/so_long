@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 15:20:26 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:55:28 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_player
 	int		x;
 	int		y;
 	int		collects;
+	void	*p_img;
 
 	size_t	walks;
 }	t_player;

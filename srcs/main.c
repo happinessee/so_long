@@ -6,17 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 15:57:45 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/02 18:05:05 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <fcntl.h>
-#include <math.h>
-#include <string.h>
-#include <unistd.h>
-#include <stddef.h>
 
 #include "../mlx/mlx.h"
 #include "../includes/so_long.h"
@@ -41,6 +35,7 @@ int	main(int argc, char **argv)
 	map = make_map(argv[1]);
 	map.mlx_info = make_mlx(map);
 	map.img_set = make_img(map.mlx_info);
+	map.player.p_img = map.img_set.img[2];
 	make_window(map);
 	mlx_hook(map.mlx_info.win, 2, 0, &moving, &map);
 	mlx_hook(map.mlx_info.win, 17, 0, &game_clear, &map);

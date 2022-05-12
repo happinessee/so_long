@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 16:07:07 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:02:59 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_map
 	int			exist_player;
 	int			frame;
 	t_player	player;
+	t_player	enemy;
 	t_mlx		mlx_info;
 	t_img		img_set;
 }	t_map;
@@ -79,4 +80,7 @@ void	make_window(t_map map);
 // character_move
 int	moving(int key_num, t_map *map);
 int	game_clear(t_map *map);
+
+// enemy_move
+void	enemy_move(t_map *map);
 #endif

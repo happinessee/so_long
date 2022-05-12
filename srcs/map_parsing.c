@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 18:04:46 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:42:51 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,18 @@ static void	map_checker(char **str, t_map *info)
 			if (str[i][j] == 'P')
 			{
 				info->exist_player += 1;
-				ft_memset(&info->player, 0, sizeof(t_player));
 				info->player.x = j;
 				info->player.y = i;
 			}
 			else if (str[i][j] == 'C')
+			{
+				if (info->collects == 0)
+				{
+					info->enemy.x = j;
+					info->enemy.y = i;
+				}
 				info->collects += 1;
+			}
 			else if (str[i][j] == 'E')
 				info->escape += 1;
 		}

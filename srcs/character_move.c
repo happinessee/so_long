@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 17:20:39 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 17:24:31 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:43:09 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	move_d(t_map *map)
 	if (!(map->player.p_img == map->img_set.img[10]))
 		map->player.p_img = map->img_set.img[10];
 	else
-		map->player.p_img = map->img_set.img[11];	
+		map->player.p_img = map->img_set.img[11];
 	make_window(*map);
 }
 

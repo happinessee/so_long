@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 16:31:57 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:30:36 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	frame(t_map *map)
 int	loop(t_map map)
 {
 	make_window(map);
-	// 캐릭터 움직임 (sprite) -> 플레이어 이미지를 바꾸고
 	frame(&map);
+	if (map.frame == 0)
+		enemy_move(&map);
 	return (0);
 }
 
@@ -47,6 +48,7 @@ int	main(int argc, char **argv)
 	map.mlx_info = make_mlx(map);
 	map.img_set = make_img(map.mlx_info);
 	map.player.p_img = map.img_set.img[2];
+	map.enemy.p_img = map.img_set.img[16];
 	make_window(map);
 	mlx_hook(map.mlx_info.win, 2, 0, &moving, &map);
 	mlx_hook(map.mlx_info.win, 17, 0, &game_clear, &map);

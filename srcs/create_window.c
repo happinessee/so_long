@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 17:19:37 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:29:37 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,6 @@ void	make_window(t_map map)
 	}
 	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
 	map.player.p_img, map.player.x * 64, map.player.y * 64);
+	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
+	map.img_set.img[16], map.enemy.x * 64, map.enemy.y * 64);
 }

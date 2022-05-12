@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 17:20:39 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:55:55 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:24:31 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void	move_w(t_map *map)
 		map->player.y -= 1;
 		map->player.walks += 1;
 	}
-	map->player.p_img = map->img_set.img[5];
+	if (!(map->player.p_img == map->img_set.img[5]))
+		map->player.p_img = map->img_set.img[5];
+	else
+		map->player.p_img = map->img_set.img[6];
 	make_window(*map);
 }
 
@@ -54,7 +57,10 @@ void	move_a(t_map *map)
 		map->player.x -= 1;
 		map->player.walks += 1;
 	}
-	map->player.p_img = map->img_set.img[8];
+	if (!(map->player.p_img == map->img_set.img[8]))
+		map->player.p_img = map->img_set.img[8];
+	else
+		map->player.p_img = map->img_set.img[9];
 	make_window(*map);
 }
 
@@ -75,7 +81,12 @@ void	move_s(t_map *map)
 		map->player.y += 1;
 		map->player.walks += 1;
 	}
-	map->player.p_img = map->img_set.img[2];
+	if (map->player.p_img == map->img_set.img[2])
+		map->player.p_img = map->img_set.img[3];
+	else if (map->player.p_img == map->img_set.img[3])
+		map->player.p_img = map->img_set.img[4];
+	else
+		map->player.p_img = map->img_set.img[2];
 	make_window(*map);
 }
 
@@ -96,7 +107,10 @@ void	move_d(t_map *map)
 		map->player.x += 1;
 		map->player.walks += 1;
 	}
-	map->player.p_img = map->img_set.img[10];
+	if (!(map->player.p_img == map->img_set.img[10]))
+		map->player.p_img = map->img_set.img[10];
+	else
+		map->player.p_img = map->img_set.img[11];	
 	make_window(*map);
 }
 

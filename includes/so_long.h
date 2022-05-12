@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:55:28 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:07:07 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map
 	int 		collects;
 	int			escape;
 	int			exist_player;
+	int			frame;
 	t_player	player;
 	t_mlx		mlx_info;
 	t_img		img_set;

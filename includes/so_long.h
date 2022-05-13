@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/13 11:24:45 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:36:58 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,16 @@ t_img	make_img(t_mlx mlx_info);
 void	make_window(t_map map);
 
 // character_move
-int	moving(int key_num, t_map *map);
-int	game_clear(t_map *map);
+int		moving(int key_num, t_map *map);
+int		game_clear(t_map *map);
 
 // enemy_move
 void	enemy_move(t_map *map);
 void	check_enemy(t_map map);
+
+// itoa
+char	*ft_itoa(int n);
+
+// step_count
+void	draw_step_count(t_map map);
 #endif

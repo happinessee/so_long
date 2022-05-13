@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 19:30:36 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/13 11:35:37 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	loop(t_map map)
 	make_window(map);
 	frame(&map);
 	if (map.frame == 0)
+	{
 		enemy_move(&map);
+	}
 	return (0);
 }
 

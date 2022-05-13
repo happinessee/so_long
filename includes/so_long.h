@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 18:02:59 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/13 11:24:45 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ int	game_clear(t_map *map);
 
 // enemy_move
 void	enemy_move(t_map *map);
+void	check_enemy(t_map map);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:48:20 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:32:39 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/13 11:40:17 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../mlx/mlx.h"
 
 #include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -33,6 +34,7 @@ void	*ft_memset(void *b, int c, size_t len)
 
 int	game_clear(t_map *map)
 {	
+	printf("Game Clear!!!\n");
 	mlx_destroy_window(map->mlx_info.mlx, map->mlx_info.win);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 18:26:27 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:39:16 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <fcntl.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	set_collects_enemy(t_map *map, int j, int i)
 {

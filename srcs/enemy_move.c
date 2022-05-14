@@ -6,15 +6,12 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:43:51 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 17:28:09 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:37:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../mlx/mlx.h"
-
-#include <stdio.h>
-#include <stdlib.h>
 
 static void	enemy_d(t_map *map, int *flag, int *cnt)
 {

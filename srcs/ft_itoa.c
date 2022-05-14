@@ -6,9 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:36:45 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/03/16 17:19:06 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:38:17 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/so_long.h"
 
 #include <stdlib.h>
 

@@ -6,14 +6,12 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 14:20:33 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:37:11 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../includes/so_long.h"
-
-#include <stdio.h>
 
 t_mlx	make_mlx(t_map map)
 {

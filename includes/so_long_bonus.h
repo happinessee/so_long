@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 16:05:21 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:21:08 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_BONUS_H
-# define SO_LONG_BONUS_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include <stddef.h>
 
@@ -20,7 +20,7 @@ typedef struct s_player
 	int		x;
 	int		y;
 	int		collects;
-	void	*img;
+	void	*p_img;
 
 	size_t	walks;
 }	t_player;
@@ -34,7 +34,7 @@ typedef struct s_mlx
 
 typedef struct s_image
 {
-	void	*img[17];
+	void	*img[18];
 
 	int		height;
 	int		width;
@@ -50,9 +50,11 @@ typedef struct s_map
 	int			exist_player;
 	int			frame;
 	t_player	player;
+	t_player	enemy;
 	t_mlx		mlx_info;
 	t_img		img_set;
 }	t_map;
+
 
 // gnl
 char	*get_next_line(int fd);
@@ -76,7 +78,21 @@ t_img	make_img(t_mlx mlx_info);
 void	make_window(t_map map);
 
 // character_move
-int	moving(int key_num, t_map *map);
-int	game_clear(t_map *map);
+int		moving(int key_num, t_map *map);
+int		game_clear(t_map *map);
+
+// enemy_move
+void	enemy_move(t_map *map);
+void	check_enemy(t_map map);
+
+// itoa
+char	*ft_itoa(int n);
+
+// draw_objs
+void	draw_step_count(t_map map);
+void	draw_tree(t_map map, int i, int j);
+void	draw_fish(t_map map, int i, int j);
+void	draw_player(t_map map);
+void	draw_enemy(t_map map);
 
 #endif

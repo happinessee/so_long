@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_window.c                                    :+:      :+:    :+:   */
+/*   create_window_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:18:14 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:36:41 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 #include <stdio.h>
 
@@ -46,6 +46,8 @@ t_img	make_img2(t_mlx mlx_info, t_img img_set)
 				"images/duck2_00.xpm", &img_set.width, &img_set.height);
 	img_set.img[16] = mlx_xpm_file_to_image(mlx_info.mlx, \
 				"images/cat_00.xpm", &img_set.width, &img_set.height);
+	img_set.img[17] = mlx_xpm_file_to_image(mlx_info.mlx, \
+				"images/step.xpm", &img_set.width, &img_set.height);
 	return (img_set);
 }
 
@@ -88,16 +90,16 @@ void	make_window(t_map map)
 			mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
 						map.img_set.img[14], j * 64, i * 64);
 			if (map.map[i][j] == '1')
-				mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-						map.img_set.img[0], j * 64, i * 64);
+				draw_tree(map, i, j);
 			else if (map.map[i][j] == 'C')
-				mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-						map.img_set.img[12], j * 64, i * 64);
+				draw_fish(map, i, j);
 			else if (map.map[i][j] == 'E')
 				mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
 						map.img_set.img[15], j * 64, i * 64);
 		}
 	}
-	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-	map.img_set.img[2], map.player.x * 64, map.player.y * 64);
+	draw_player(map);
+	draw_enemy(map);
+	draw_step_count(map);
+	check_enemy(map);
 }

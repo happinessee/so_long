@@ -1,94 +1,96 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.c                                      :+:      :+:    :+:   */
+/*   map_parsing_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/02 17:30:13 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:37:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 
-void	print_err(char *str)
+void	set_collects_enemy(t_map *map, int j, int i)
 {
-	printf("%s\n", str);
-	exit(0);
+	if (map->collects == 0)
+	{
+		map->enemy.x = j;
+		map->enemy.y = i;
+	}
+	map->collects += 1;
 }
 
-static void	map_checker(char **str, t_map *info)
+static void	map_checker(char **str, t_map *map)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < info->rows)
+	while (++i < map->rows)
 	{
 		j = -1;
-		while (++j < info->columns)
+		while (++j < map->columns)
 		{
 			if (str[0][j] != '1' || str[i][0] != '1' \
 				|| str[i][ft_strlen(str[i]) - 1] != '1')
 				print_err("Error : The map must be blocked by a wall.");
 			if (str[i][j] == 'P')
 			{
-				info->exist_player += 1;
-				ft_memset(&info->player, 0, sizeof(t_player));
-				info->player.x = j;
-				info->player.y = i;
+				map->exist_player += 1;
+				map->player.x = j;
+				map->player.y = i;
 			}
 			else if (str[i][j] == 'C')
-				info->collects += 1;
+				set_collects_enemy(map, j, i);
 			else if (str[i][j] == 'E')
-				info->escape += 1;
+				map->escape += 1;
 		}
 	}
 }
 
-char	**load_map(t_map *info, char *argv)
+char	**load_map(t_map *map, char *argv)
 {
 	int		fd;
-	char	*map;
+	char	*before_map;
 	char	**maps;
 	char	*tmp;
 
 	fd = open(argv, O_RDONLY);
-	map = get_next_line(fd);
-	info->columns = ft_strlen(map) - 1;
-	info->rows = 1;
+	before_map = get_next_line(fd);
+	map->columns = ft_strlen(before_map) - 1;
+	map->rows = 1;
 	while (1)
 	{
 		tmp = get_next_line(fd);
 		if (tmp == NULL)
 			break ;
-		map = ft_strjoin(map, tmp, 2);
-		info->rows += 1;
+		before_map = ft_strjoin(before_map, tmp, 1);
+		map->rows += 1;
 	}
-	if (info->rows * info->columns != (ft_strlen(map) - info->rows + 1))
+	if (map->rows * map->columns != (int)(ft_strlen(before_map) - map->rows + 1))
 		print_err("Error : Maps must be rectangular.");
-	maps = ft_split(map, '\n');
+	maps = ft_split(before_map, '\n');
+	free(before_map);
 	return (maps);
 }
 
 t_map	make_map(char *argv)
 {
-	char	*tmp;
 	char	**maps;
-	t_map	info;
+	t_map	map;
 
-	ft_memset(&info, 0, sizeof(t_map));
-	maps = load_map(&info, argv);
-	map_checker(maps, &info);
-	if (info.exist_player != 1)
+	ft_memset(&map, 0, sizeof(t_map));
+	maps = load_map(&map, argv);
+	map_checker(maps, &map);
+	if (map.exist_player != 1)
 		print_err("Error : 1 player must exist.");
-	if (info.collects < 1)
+	if (map.collects < 1)
 		print_err("Error : 1 collect must exist");
-	info.map = maps;
-	return (info);
+	map.map = maps;
+	return (map);
 }

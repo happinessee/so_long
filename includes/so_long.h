@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/13 14:36:58 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:55:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_mlx
 
 typedef struct s_image
 {
-	void	*img[17];
+	void	*img[18];
 
 	int		height;
 	int		width;

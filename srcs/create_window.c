@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/13 14:38:07 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 13:41:00 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_img	make_img2(t_mlx mlx_info, t_img img_set)
 				"images/duck2_00.xpm", &img_set.width, &img_set.height);
 	img_set.img[16] = mlx_xpm_file_to_image(mlx_info.mlx, \
 				"images/cat_00.xpm", &img_set.width, &img_set.height);
+	img_set.img[17] = mlx_xpm_file_to_image(mlx_info.mlx, \
+				"images/step.xpm", &img_set.width, &img_set.height);
 	return (img_set);
 }
 

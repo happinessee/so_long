@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/13 11:35:37 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 13:38:33 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	loop(t_map map)
 int	main(int argc, char **argv)
 {
 	t_map	map;
-	t_mlx	mlx_info;
-	t_img	img_set;
 
 	if (argc != 2)
 		print_err("Error : There must be only one parameter.");

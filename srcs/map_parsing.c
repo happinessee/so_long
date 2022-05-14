@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 16:32:16 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/12 17:42:51 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 13:39:11 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**load_map(t_map *info, char *argv)
 		map = ft_strjoin(map, tmp, 2);
 		info->rows += 1;
 	}
-	if (info->rows * info->columns != (ft_strlen(map) - info->rows + 1))
+	if (info->rows * info->columns != (int) (ft_strlen(map) - info->rows + 1))
 		print_err("Error : Maps must be rectangular.");
 	maps = ft_split(map, '\n');
 	return (maps);
@@ -84,7 +84,6 @@ char	**load_map(t_map *info, char *argv)
 
 t_map	make_map(char *argv)
 {
-	char	*tmp;
 	char	**maps;
 	t_map	info;
 

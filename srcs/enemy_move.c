@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:43:51 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 14:14:32 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 17:28:09 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	enemy_d(t_map *map, int *flag, int *cnt)
 	}
 }
 
-static void	enemy_w(t_map *map, int *flag, int *cnt)
+static void	enemy_s(t_map *map, int *flag, int *cnt)
 {
 	if (*flag == 1)
 	{
@@ -46,7 +46,7 @@ static void	enemy_a(t_map *map, int *flag, int *cnt)
 	}
 }
 
-static void	enemy_s(t_map *map, int *flag, int *cnt)
+static void	enemy_w(t_map *map, int *flag, int *cnt)
 {
 	if (*flag == 3)
 	{
@@ -62,9 +62,9 @@ void	enemy_move(t_map *map)
 	static int	cnt;
 
 	enemy_d(map, &flag, &cnt);
-	enemy_w(map, &flag, &cnt);
-	enemy_a(map, &flag, &cnt);
 	enemy_s(map, &flag, &cnt);
+	enemy_a(map, &flag, &cnt);
+	enemy_w(map, &flag, &cnt);
 	if (cnt == 4)
 	{
 		cnt = 0;

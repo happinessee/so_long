@@ -6,12 +6,12 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 18:44:33 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:53:51 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stddef.h>
 
@@ -43,9 +43,9 @@ typedef struct s_image
 typedef struct s_map
 {
 	char		**map;
-	int 		rows;
-	int 		columns;
-	int 		collects;
+	int			rows;
+	int			columns;
+	int			collects;
 	int			escape;
 	int			exist_player;
 	int			frame;
@@ -55,8 +55,7 @@ typedef struct s_map
 	t_img		img_set;
 }	t_map;
 
-
-// gnl
+/* gnl */
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *str);
 void	ft_bzero(void *s, size_t n);
@@ -64,31 +63,31 @@ void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2, int flag);
 
-// split
+/* split */
 char	**ft_split(char const *str, char c);
 
-// map_parsing
+/* map_parsing */
 void	print_err(char *str);
 void	*ft_memset(void *b, int c, size_t len);
 t_map	make_map(char *argv);
 
-// create_window
+/* create_window */
 t_mlx	make_mlx(t_map map);
 t_img	make_img(t_mlx mlx_info);
 void	make_window(t_map map);
 
-// character_move
+/* character_move */
 int		moving(int key_num, t_map *map);
 int		game_clear(t_map *map);
 
-// enemy_move
+/* enemy_move */
 void	enemy_move(t_map *map);
 void	check_enemy(t_map map);
 
-// itoa
+/* itoa */
 char	*ft_itoa(int n);
 
-// draw_objs
+/* draw_objs */
 void	draw_step_count(t_map map);
 void	draw_tree(t_map map, int i, int j);
 void	draw_fish(t_map map, int i, int j);

@@ -17,7 +17,7 @@ SRC = 	ft_split.c \
 		character_move.c \
 		so_long_utils.c \
 		enemy_move.c \
-		display_step.c \
+		display_objs.c \
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRC))
 

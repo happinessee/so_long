@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 14:28:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 13:41:00 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:20:33 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,26 +76,6 @@ t_img	make_img(t_mlx mlx_info)
 	return (img_set);
 }
 
-void	draw_tree(t_map map, int i, int j)
-{
-	if (map.frame < 30)
-		mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-			map.img_set.img[0], j * 64, i * 64);
-	else
-	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-			map.img_set.img[1], j * 64, i * 64);	
-}
-
-void	draw_fish(t_map map, int i, int j)
-{
-	if (map.frame < 30)
-		mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-			map.img_set.img[12], j * 64, i * 64);
-	else
-		mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-			map.img_set.img[13], j * 64, i * 64);			
-}
-
 void	make_window(t_map map)
 {
 	int		i;
@@ -118,10 +98,8 @@ void	make_window(t_map map)
 						map.img_set.img[15], j * 64, i * 64);
 		}
 	}
-	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-	map.player.p_img, map.player.x * 64, map.player.y * 64);
-	mlx_put_image_to_window(map.mlx_info.mlx, map.mlx_info.win, \
-	map.img_set.img[16], map.enemy.x * 64, map.enemy.y * 64);
+	draw_player(map);
+	draw_enemy(map);
 	draw_step_count(map);
 	check_enemy(map);
 }

@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:58:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/13 14:55:40 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:21:08 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ void	check_enemy(t_map map);
 // itoa
 char	*ft_itoa(int n);
 
-// step_count
+// draw_objs
 void	draw_step_count(t_map map);
+void	draw_tree(t_map map, int i, int j);
+void	draw_fish(t_map map, int i, int j);
+void	draw_player(t_map map);
+void	draw_enemy(t_map map);
+
 #endif

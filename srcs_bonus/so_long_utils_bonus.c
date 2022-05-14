@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:48:20 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/05/14 14:37:51 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:31:47 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	print_err(char *str)
 
 int	game_clear(t_map *map)
 {	
-	printf("Game Clear!!!\n");
+	if (map->collects == map->player.collects)
+		printf("Game Clear!!!\n");
 	mlx_destroy_window(map->mlx_info.mlx, map->mlx_info.win);
 	exit(0);
 }

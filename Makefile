@@ -21,7 +21,7 @@ SRC = 	ft_split.c \
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRC))
 
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:%.c=%.o)
 
 INCS = $(INCS_DIR)so_long.h
 
